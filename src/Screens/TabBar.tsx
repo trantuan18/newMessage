@@ -46,7 +46,8 @@ export default function MyTabs(props: any) {
                 tabBarActiveTintColor: '#FF6B76',
                 tabBarStyle: {
                     backgroundColor: '#373838',
-                    padding: 10
+                    paddingHorizontal: 20,
+                    padding: 5
                 },
             }}
         >

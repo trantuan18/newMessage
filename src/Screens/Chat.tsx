@@ -111,19 +111,18 @@ const Chat = (props :any) => {
       }
       
     return (
-        <View style={{flex:1, paddingBottom:getBottomSpace() }}>
+        <View style={{flex:1, paddingBottom:getBottomSpace() ,}}>
             <View style={{
-                height: getStatusBarHeight(),
                 width: '100%',
                 backgroundColor: '#FF5757',
                 flexDirection: "row",
-                alignItems: 'flex-end',
+                alignItems: 'center',
                 justifyContent: 'space-between',
-                padding:10
+                height:getStatusBarHeight() + 50
             }}> 
-                <TouchableOpacity onPress={()=>props.navigation.goBack()}>
-                    <Feather name='chevron-left' color="#fff" size={30} />
-                    </TouchableOpacity>
+                <TouchableOpacity onPress={()=>props.navigation.goBack()} style={{paddingHorizontal:10}}>
+                    <Feather name='chevron-left' color="#fff" size={30}  />
+                </TouchableOpacity>
                 <Image
                     style={{
                         width: 50,

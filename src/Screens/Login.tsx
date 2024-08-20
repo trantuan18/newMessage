@@ -9,8 +9,8 @@ export default function Login(props: any) {
 
   const { currentUser, setCurrentUser } = useContext(GlobalContext)
 
-  const [email, setEmail] = useState('Huynew@gmail.com');
-  const [password, setPassword] = useState('abcABC123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dimensions = Dimensions.get('window');
   const imageWidth = dimensions.width;
 
@@ -39,6 +39,7 @@ export default function Login(props: any) {
       <ImageBackground
         source={require('../images/Chat_app.png')}
         style={styles.container}
+        resizeMode='stretch'
       >
         <View style={styles.smallScreen}>
           <View style={styles.viewInput}>

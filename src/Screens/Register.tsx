@@ -56,7 +56,12 @@ const Register = (props: any) => {
         <KeyboardAwareScrollView
             scrollEnabled={false}
         >
-            <ImageBackground source={require('../images/Chat_app.png')} style={styles.container} >
+            <ImageBackground
+                source={require('../images/Chat_app.png')}
+                style={styles.container}
+                resizeMode='stretch'
+
+            >
                 <View style={styles.smallScreen}>
                     <View style={styles.viewInput}>
                         <Text style={styles.textLabel}>Name</Text>

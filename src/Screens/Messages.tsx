@@ -19,6 +19,7 @@ import {
 
 
 } from 'react-native';
+import { getStatusBarHeight } from '../helper/CheckIphoneX';
 
 
 const Messages = (props) => {
@@ -91,16 +92,11 @@ const Messages = (props) => {
         getUserContacts();
     }, [props.navigation])
 
-
-
-
-
     return (
         <Fragment>
-            <SafeAreaView style={{ flex: 0, backgroundColor: '#F8AF00' }} />
+            <SafeAreaView style={{ flex: 0, backgroundColor: '#F8AF00', paddingTop: getStatusBarHeight() }} />
             <View style={{ backgroundColor: '#F8B000', flex: 1, alignItems: 'center' }}>
                 <Image source={require('../images/chat_hero.jpg')} style={{ width: imageWidth, height: 270, marginBottom: 15, marginTop: 0 }} />
-
                 <View>
                     <FlatList
                         data={notiUsers}

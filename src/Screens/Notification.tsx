@@ -16,13 +16,11 @@ import { GlobalContext } from '../Context';
 import Feather from 'react-native-vector-icons/Feather';
 import { showMessage } from 'react-native-flash-message';
 import Clipboard from '@react-native-clipboard/clipboard';
+import { getStatusBarHeight } from '../helper/CheckIphoneX';
 
 
 const Notification = (props: any) => {
-
     const { currentUser } = useContext(GlobalContext)
-
-
     const [notiUsers, setNotiUsers] = useState([])
     const dimensions = Dimensions.get('window');
     const imageWidth = dimensions.width;
@@ -77,9 +75,9 @@ const Notification = (props: any) => {
 
     return (
         <Fragment>
-            <SafeAreaView style={{ flex: 0, backgroundColor: '#FAF8E7' }} />
-            <View style={{ backgroundColor: '#FF6C77', flex: 1, alignItems: 'center' }}>
-                <Image source={require('../images/Noti_hero.jpg')} style={{ width: imageWidth, height: 270, marginBottom: 10, marginTop: 0 }} />
+            <SafeAreaView style={{ flex: 0, backgroundColor: '#FAF8E7', paddingTop: getStatusBarHeight() }} />
+            <View style={{ backgroundColor: '#FF6C77', flex: 1, alignItems: 'center', }}>
+                <Image source={require('../images/Noti_hero.jpg')} style={{ width: imageWidth, height: 300, marginBottom: 10, marginTop: 0 }} />
                 <Text style={{ marginVertical: 10, fontWeight: '800' }} >{"Share your ID to make friends"}</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={{ marginVertical: 10, fontWeight: '800' }} >{currentUser.uid}</Text>
@@ -91,12 +89,10 @@ const Notification = (props: any) => {
                                 type: "success",
                             });
                         }}
-                        style={{ marginLeft: 5, paddingVertical: 10 }}>
+                        style={{ marginLeft: 10, paddingVertical: 10, paddingHorizontal: 10 }}>
                         <Feather name='copy' size={20} />
                     </TouchableOpacity>
                 </View>
-
-                {/* {(notiUsers.length > 0)? */}
 
                 <FlatList
                     data={notiUsers}
@@ -127,10 +123,6 @@ const Notification = (props: any) => {
                     )}
                     keyExtractor={item => item.uid}
                 />
-
-
-
-
                 {/* </View> */}
             </View>
             <TouchableOpacity
@@ -148,6 +140,7 @@ const Notification = (props: any) => {
                     source={require('../images/logout.png')}
                     style={styles.floatingButtonStyle}
                 />
+                <Text style={{ color: '#fff' }}>Log out</Text>
                 {/* <MaterialIcons name="explore" style={styles.floatingButtonStyle} /> */}
             </TouchableOpacity>
         </Fragment>

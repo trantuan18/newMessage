@@ -12,8 +12,8 @@ export function isIphoneX() {
         ((dimen.height === 812 || dimen.width === 812) ||
             (dimen.height === 844 || dimen.width === 844) ||
             (dimen.height === 896 || dimen.width === 896) ||
-            (dimen.height === 926 || dimen.width === 926)) || 
-            (dimen.height === 852 || dimen.width === 852)
+            (dimen.height === 926 || dimen.width === 926)) ||
+        (dimen.height === 852 || dimen.width === 852)
     );
 }
 
@@ -26,7 +26,7 @@ export function ifIphoneX(iphoneXStyle, regularStyle) {
 
 export function getStatusBarHeight(safe) {
     return Platform.select({
-        ios: DeviceInfo.hasDynamicIsland()? 100 : ifIphoneX(safe ? 44 : 30, 20),
+        ios: DeviceInfo.hasDynamicIsland() ? 100 : ifIphoneX(safe ? 44 : 30, 20),
         android: StatusBar.currentHeight
     });
 }

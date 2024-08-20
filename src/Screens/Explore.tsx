@@ -14,6 +14,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { db } from '../../firebase';
 
 import { SwipeListView } from 'react-native-swipe-list-view';
+import { getStatusBarHeight } from '../helper/CheckIphoneX';
 
 const Explore = (props: any) => {
 
@@ -101,12 +102,12 @@ const Explore = (props: any) => {
 
     return (
         <Fragment>
-            <SafeAreaView style={{ flex: 0, backgroundColor: '#FFFFFF' }} />
+            <SafeAreaView style={{ flex: 0, backgroundColor: '#FFFFFF', paddingTop: getStatusBarHeight() }} />
             {/* <SafeAreaView style={{flex: 1 }}> */}
-            <View style={{ backgroundColor: '#E5EAFD', flex: 1, alignItems: 'center' }}>
-                <Image source={require('../images/Explore_hero.jpg')} style={{ width: imageWidth, height: 270, marginBottom: 15, marginTop: 0 }} />
+            <View style={{ backgroundColor: '#E5EAFD', flex: 1, alignItems: 'center', }}>
+                <Image source={require('../images/Explore_hero.jpg')} style={{ width: imageWidth, height: 300, marginBottom: 15, marginTop: 0 }} />
                 <Text style={{ marginVertical: 20, fontWeight: '800' }} >SWIPE to find who is your FRIEND</Text>
-                <View style={{ flexDirection: 'row', width: '90%', backgroundColor: '#ffff', margin: 5, borderRadius: 7, padding: 5 }}>
+                <View style={{ flexDirection: 'row', width: '90%', backgroundColor: '#ffff', margin: 5, borderRadius: 7, padding: 5, justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}>
                     <TextInput
                         placeholder='Input ID to find your friend'
                         onChangeText={onChangeIdFind}
@@ -116,7 +117,7 @@ const Explore = (props: any) => {
                         }}
                     />
                     <TouchableOpacity
-                        style={{ paddingVertical: 5 }}
+                        style={{ paddingHorizontal: 10, padding: 5 }}
                         onPress={() => {
                             findUserById()
                         }}
